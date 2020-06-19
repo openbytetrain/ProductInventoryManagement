@@ -1,0 +1,48 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.bytetrain.prodinv"
+    },
+    "jhipsterVersion": "6.9.1",
+    "applicationType": "microservice",
+    "baseName": "productinventory",
+    "packageName": "com.bytetrain.prodinv",
+    "packageFolder": "com/bytetrain/prodinv",
+    "serverPort": "9001",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "MGY2YTBjZGI2ZDRmNzE4YzQ2YWU5ODBhNWZkMzQyZTY5MGY4ZjQ5YWI3Y2JkZTk1Y2M0Y2EwZWU0ODRjNmRmZGI4YzAxY2JjMDM5ZjZiZmU2NGVjZjJhM2VjM2M2MGY1MzY0MGExOGNmZjFiNjk4OTUxMDliMTUyNzIxOGU4MjQ=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1592555426724,
+    "testFrameworks": ["cucumber"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-kotlin",
+        "version": "1.8.0"
+      }
+    ],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [
+      {
+        "name": "generator-jhipster-kotlin",
+        "version": "1.8.0"
+      }
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
