@@ -40,6 +40,7 @@ class WebConfigurer(
             source.apply {
                 registerCorsConfiguration("/api/**", config)
                 registerCorsConfiguration("/management/**", config)
+                registerCorsConfiguration("/v3/api-docs", config)
                 registerCorsConfiguration("/v2/api-docs", config)
             }
         }

@@ -148,3 +148,4 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+/openapi/src/generated/

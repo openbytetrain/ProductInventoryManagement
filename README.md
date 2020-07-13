@@ -1,4 +1,4 @@
-# productinventory
+# Product Inventory
 
 This application was generated using JHipster 6.9.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.9.1](https://www.jhipster.tech/documentation-archive/v6.9.1).
 
@@ -16,7 +16,7 @@ For further instructions on how to develop with JHipster, have a look at [Using 
 
 ### Doing API-First development using openapi-generator
 
-[OpenAPI-Generator]() is configured for this application. You can generate API code from the `src/main/resources/swagger/api.yml` definition file by running:
+[OpenAPI-Generator]() is configured for this application. You can generate API code from the `src/main/resources/swagger/api.json` definition file by running:
 
 ```bash
 ./gradlew openApiGenerate
@@ -24,7 +24,7 @@ For further instructions on how to develop with JHipster, have a look at [Using 
 
 Then implements the generated delegate classes with `@Service` classes.
 
-To edit the `api.yml` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
+To edit the `api.json` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
 
 Refer to [Doing API-First development][] for more details.
 

@@ -25,16 +25,11 @@ class ProductinventoryKafkaResource(
 ) {
 
     private val log = LoggerFactory.getLogger(javaClass)
-    private lateinit var producer: KafkaProducer<String, String>
-    private lateinit var sseExecutorService: ExecutorService
-
-    init {
-        producer = KafkaProducer<String, String>(kafkaProperties.getProducerProps())
-        sseExecutorService = Executors.newCachedThreadPool()
-    }
+    private var producer: KafkaProducer<String, String> = KafkaProducer<String, String>(kafkaProperties.getProducerProps())
+    private var sseExecutorService: ExecutorService = Executors.newCachedThreadPool()
 
     @PostMapping("/publish/{topic}")
-    @Throws(*[ExecutionException::class, InterruptedException::class])
+    @Throws(ExecutionException::class, InterruptedException::class)
     fun publish(@PathVariable topic: String, @RequestParam message: String, @RequestParam(required = false) key: String?): PublishResult {
         log.debug("REST request to send to Kafka topic $topic with key $key the message : $message")
         val metadata = producer.send(ProducerRecord(topic, key, message)).get()

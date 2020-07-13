@@ -8,7 +8,7 @@
     "baseName": "productinventory",
     "packageName": "com.bytetrain.prodinv",
     "packageFolder": "com/bytetrain/prodinv",
-    "serverPort": "9001",
+    "serverPort": "9010",
     "authenticationType": "jwt",
     "cacheProvider": "no",
     "enableHibernateCache": false,

@@ -5,15 +5,20 @@
 apply plugin: "org.openapi.generator"
 
 openApiGenerate {
-    generatorName = "spring"
-    inputSpec = "$rootDir/src/main/resources/swagger/api.yml".toString()
-    outputDir = "$buildDir/openapi".toString()
+    generatorName = "kotlin-spring"
+    inputSpec = "$rootDir/src/main/resources/swagger/api.json".toString()
+    outputDir = "$rootDir/openapi/".toString()
     apiPackage = "com.bytetrain.prodinv.web.api"
     modelPackage = "com.bytetrain.prodinv.web.api.model"
+    templateDir = "$rootDir/src/main/resources/swagger/templates/kotlin-spring"
     apiFilesConstrainedTo = [""]
     modelFilesConstrainedTo = [""]
-    supportingFilesConstrainedTo = ["ApiUtil.java"]
-    configOptions = [delegatePattern: "true", title: "productinventory"]
+    supportingFilesConstrainedTo = ["ApiUtil.kt"]
+    configOptions = [
+        delegatePattern: "true",
+        title: "productinventory",
+        sourceFolder: "src/generated/kotlin"
+    ]
     validateSpec = true
     importMappings = [Problem:"org.zalando.problem.Problem"]
 }
