@@ -1,5 +1,6 @@
 package com.bytetrain.prodinv.domain
 
+import com.bytetrain.prodinv.web.api.model.*
 import java.io.Serializable
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
@@ -7,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field
 
 /**
  * A Product.
+ *
  */
 @Document(collection = "product")
 data class Product(
@@ -14,9 +16,26 @@ data class Product(
     var id: String? = null,
     @Field("name")
     var name: String? = null,
-
+    @Field("status")
+    var status: ProductStatusType? = null,
     @Field("description")
-    var description: String? = null
+    var description: String? = null,
+    @Field("product_offering")
+    var productOffering: ProductOfferingRef? = null,
+    @Field("product_characteristic")
+    var productCharacteristic: List<Characteristic>? = null,
+    @Field("product_specification")
+    var productSpecification: ProductSpecificationRef? = null,
+    @Field("billing_account")
+    var billingAccount: BillingAccountRef? = null,
+    @Field("schema_location")
+    var atSchemaLocation: java.net.URI? = null,
+    @Field("related_party")
+    var relatedParty: List<RelatedParty>? = null,
+    @Field("realizing_service")
+    var realizingService: List<ServiceRef>? = null,
+    @Field("product_price")
+    var productPrice: List<ProductPrice>? = null
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 ) : Serializable {
