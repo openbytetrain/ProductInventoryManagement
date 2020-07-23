@@ -149,3 +149,4 @@ Desktop.ini
 ######################
 .eslintcache
 /openapi/src/generated/
+/openapi/build/
