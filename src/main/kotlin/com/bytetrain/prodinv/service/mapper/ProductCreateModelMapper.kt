@@ -4,7 +4,7 @@ import com.bytetrain.prodinv.domain.Product
 import com.bytetrain.prodinv.web.api.model.ProductCreate
 import org.mapstruct.Mapper
 
-@Mapper(componentModel = "spring", uses = [])
+@Mapper(componentModel = "spring", uses = [CharacteristicModelMapper::class])
 abstract class ProductCreateModelMapper :
     EntityMapper<ProductCreate, Product> {
 

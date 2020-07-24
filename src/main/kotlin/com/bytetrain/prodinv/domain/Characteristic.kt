@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 @Document(collection = "characteristics")
 data class Characteristic(
-    var name: String?,
+    var name: String,
     var value: Any,
     var valueType: String? = null,
     var atBaseType: String? = null,

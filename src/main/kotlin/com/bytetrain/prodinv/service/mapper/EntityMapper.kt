@@ -16,4 +16,6 @@ interface EntityMapper<D, E> {
     fun toEntity(dtoList: MutableList<D>): MutableList<E>
 
     fun toDto(entityList: MutableList<E>): MutableList<D>
+
+    fun toDto(collection: Collection<E>): Collection<E>
 }
