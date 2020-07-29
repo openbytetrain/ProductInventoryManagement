@@ -11,8 +11,8 @@ class ProductPriceFactory {
     lateinit var priceModelMapper: PriceModelMapper
 
     @ObjectFactory
-    fun productPriceToModelFactory(productPrice: com.bytetrain.prodinv.web.api.model.ProductPrice): com.bytetrain.prodinv.domain.ProductPrice {
-        return com.bytetrain.prodinv.domain.ProductPrice(productPrice.priceType, priceModelMapper.toEntity(productPrice.price))
+    fun productPriceToModelFactory(productPrice: com.bytetrain.prodinv.web.api.model.ProductPrice): ProductPrice {
+        return ProductPrice(productPrice.priceType, priceModelMapper.toEntity(productPrice.price))
     }
     @ObjectFactory
     fun modelToProductPriceFactory(productPrice: ProductPrice): com.bytetrain.prodinv.web.api.model.ProductPrice {
