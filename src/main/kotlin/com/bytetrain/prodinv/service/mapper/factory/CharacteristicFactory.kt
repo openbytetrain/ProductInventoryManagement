@@ -1,4 +1,4 @@
-package com.bytetrain.prodinv.service.mapper
+package com.bytetrain.prodinv.service.mapper.factory
 
 import com.bytetrain.prodinv.web.api.model.Characteristic
 import org.mapstruct.ObjectFactory

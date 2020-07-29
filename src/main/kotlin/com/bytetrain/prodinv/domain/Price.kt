@@ -13,4 +13,3 @@ data class Price(
     var atType: String? = null
 
 )
-

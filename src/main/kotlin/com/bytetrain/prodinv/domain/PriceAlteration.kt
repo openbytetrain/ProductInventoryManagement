@@ -1,5 +1,6 @@
 package com.bytetrain.prodinv.domain
 
+import com.bytetrain.prodinv.web.api.model.Price
 import com.bytetrain.prodinv.web.api.model.ProductOfferingPriceRef
 import org.springframework.data.mongodb.core.mapping.Document
 

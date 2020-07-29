@@ -5,7 +5,7 @@ import com.bytetrain.prodinv.web.api.model.ProductOfferingPriceRef
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document(collection = "product_price")
-data class ProductPrice (
+data class ProductPrice(
     var priceType: String,
     var price: com.bytetrain.prodinv.domain.Price,
     var description: String? = null,
