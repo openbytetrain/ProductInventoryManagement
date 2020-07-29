@@ -16,6 +16,6 @@ class PriceAlterationFactory {
     @ObjectFactory
     fun priceAlterationModelToPriceAlterationFactory(priceAlteration: com.bytetrain.prodinv.domain.PriceAlteration):
         PriceAlteration {
-        return PriceAlteration(priceAlteration.priceType, priceAlteration.price)
+        return PriceAlteration(priceAlteration.priceType, priceModelMapper.toDto(priceAlteration.price))
     }
 }
