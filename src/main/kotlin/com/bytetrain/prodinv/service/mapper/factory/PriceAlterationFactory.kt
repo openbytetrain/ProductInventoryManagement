@@ -3,10 +3,10 @@ package com.bytetrain.prodinv.service.mapper.factory
 import com.bytetrain.prodinv.service.mapper.PriceModelMapper
 import com.bytetrain.prodinv.web.api.model.PriceAlteration
 import org.mapstruct.ObjectFactory
+import org.springframework.stereotype.Component
 
-class PriceAlterationFactory {
-
-    lateinit var priceModelMapper: PriceModelMapper
+@Component
+class PriceAlterationFactory(var priceModelMapper: PriceModelMapper) {
 
     @ObjectFactory
     fun priceAlterationToModelFactory(priceAlteration: PriceAlteration): com.bytetrain.prodinv.domain.PriceAlteration {
