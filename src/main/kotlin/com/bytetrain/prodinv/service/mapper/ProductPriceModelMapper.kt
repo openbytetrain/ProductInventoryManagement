@@ -6,4 +6,4 @@ import org.mapstruct.Mapper
 
 @Mapper(componentModel = "spring", uses = [PriceAlterationModelMapper::class, ProductPriceFactory::class, PriceModelMapper::class])
 interface ProductPriceModelMapper :
-    EntityMapper<ProductPrice, com.bytetrain.prodinv.domain.ProductPrice>
+    EntityMapper<ProductPrice, com.bytetrain.prodinv.domain.ProductPriceEntity>

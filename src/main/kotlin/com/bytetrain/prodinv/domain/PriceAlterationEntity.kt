@@ -1,13 +1,12 @@
 package com.bytetrain.prodinv.domain
 
-import com.bytetrain.prodinv.web.api.model.Price
 import com.bytetrain.prodinv.web.api.model.ProductOfferingPriceRef
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document(collection = "price_alteration")
-data class PriceAlteration(
+data class PriceAlterationEntity(
     var priceType: String,
-    var price: com.bytetrain.prodinv.domain.Price,
+    var priceEntity: com.bytetrain.prodinv.domain.PriceEntity,
     var applicationDuration: Int? = null,
     var description: String? = null,
     var name: String? = null,

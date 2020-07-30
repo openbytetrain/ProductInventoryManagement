@@ -1,6 +1,6 @@
 package com.bytetrain.prodinv.service.mapper.factory
 
-import com.bytetrain.prodinv.domain.ProductPrice
+import com.bytetrain.prodinv.domain.ProductPriceEntity
 import com.bytetrain.prodinv.service.mapper.PriceModelMapper
 import org.mapstruct.ObjectFactory
 import org.springframework.stereotype.Component
@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component
 class ProductPriceFactory(var priceModelMapper: PriceModelMapper) {
 
     @ObjectFactory
-    fun productPriceToModelFactory(productPrice: com.bytetrain.prodinv.web.api.model.ProductPrice): ProductPrice {
-        return ProductPrice(productPrice.priceType, priceModelMapper.toEntity(productPrice.price))
+    fun productPriceToModelFactory(productPrice: com.bytetrain.prodinv.web.api.model.ProductPrice): ProductPriceEntity {
+        return ProductPriceEntity(productPrice.priceType, priceModelMapper.toEntity(productPrice.price))
     }
 
     @ObjectFactory
-    fun modelToProductPriceFactory(productPrice: ProductPrice): com.bytetrain.prodinv.web.api.model.ProductPrice {
-        return com.bytetrain.prodinv.web.api.model.ProductPrice(productPrice.priceType, priceModelMapper.toDto(productPrice.price))
+    fun modelToProductPriceFactory(productPriceEntity: ProductPriceEntity): com.bytetrain.prodinv.web.api.model.ProductPrice {
+        return com.bytetrain.prodinv.web.api.model.ProductPrice(productPriceEntity.priceType, priceModelMapper.toDto(productPriceEntity.priceEntity))
     }
 }

@@ -4,7 +4,7 @@ import com.bytetrain.prodinv.web.rest.equalsVerifier
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class ProductDTOTest {
+class ProductEntityDTOTest {
 
     @Test
     fun dtoEqualsVerifier() {

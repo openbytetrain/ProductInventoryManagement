@@ -1,25 +1,25 @@
 package com.bytetrain.prodinv.service.mapper
 
-import com.bytetrain.prodinv.domain.Product
+import com.bytetrain.prodinv.domain.ProductEntity
 import com.bytetrain.prodinv.web.api.model.ProductCreate
 import org.mapstruct.Mapper
 
 @Mapper(componentModel = "spring", uses = [CharacteristicModelMapper::class, ProductPriceModelMapper::class])
 abstract class ProductCreateModelMapper :
-    EntityMapper<ProductCreate, Product> {
+    EntityMapper<ProductCreate, ProductEntity> {
 
-    abstract override fun toEntity(dto: ProductCreate): Product
+    abstract override fun toEntity(dto: ProductCreate): ProductEntity
 
-    override fun toDto(entity: Product): ProductCreate {
+    override fun toDto(entity: ProductEntity): ProductCreate {
         TODO("Not yet implemented")
     }
 
-    override fun toDto(entityList: MutableList<Product>): MutableList<ProductCreate> {
+    override fun toDto(entityList: MutableList<ProductEntity>): MutableList<ProductCreate> {
         TODO("Not yet implemented")
     }
 
     fun fromId(id: String?) = id?.let {
-        val product = Product()
+        val product = ProductEntity()
         product.id = id
         product
     }

@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 
 @Document(collection = "product")
-data class Product(
+data class ProductEntity(
     @Id
     var id: String? = null,
     @Field("name")
@@ -31,13 +31,13 @@ data class Product(
     @Field("realizing_service")
     var realizingService: List<ServiceRef>? = null,
     @Field("product_price")
-    var productPrice: List<ProductPrice>? = null
+    var productPriceEntity: List<ProductPriceEntity>? = null
 
 ) : Serializable {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is Product) return false
+        if (other !is ProductEntity) return false
 
         return id != null && other.id != null && id == other.id
     }

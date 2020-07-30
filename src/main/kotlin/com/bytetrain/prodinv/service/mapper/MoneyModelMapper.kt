@@ -5,4 +5,4 @@ import org.mapstruct.Mapper
 
 @Mapper(componentModel = "spring", uses = [])
 interface MoneyModelMapper :
-    EntityMapper<Money, com.bytetrain.prodinv.domain.Money>
+    EntityMapper<Money, com.bytetrain.prodinv.domain.MoneyEntity>

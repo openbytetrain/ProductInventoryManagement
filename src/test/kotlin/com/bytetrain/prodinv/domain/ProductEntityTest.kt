@@ -4,14 +4,14 @@ import com.bytetrain.prodinv.web.rest.equalsVerifier
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class ProductTest {
+class ProductEntityTest {
 
     @Test
     fun equalsVerifier() {
-        equalsVerifier(Product::class)
-        val product1 = Product()
+        equalsVerifier(ProductEntity::class)
+        val product1 = ProductEntity()
         product1.id = "id1"
-        val product2 = Product()
+        val product2 = ProductEntity()
         product2.id = product1.id
         assertThat(product1).isEqualTo(product2)
         product2.id = "id2"

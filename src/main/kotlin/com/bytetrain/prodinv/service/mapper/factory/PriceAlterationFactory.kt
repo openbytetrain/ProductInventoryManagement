@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component
 class PriceAlterationFactory(var priceModelMapper: PriceModelMapper) {
 
     @ObjectFactory
-    fun priceAlterationToModelFactory(priceAlteration: PriceAlteration): com.bytetrain.prodinv.domain.PriceAlteration {
-        return com.bytetrain.prodinv.domain.PriceAlteration(priceAlteration.priceType, priceModelMapper.toEntity(priceAlteration.price))
+    fun priceAlterationToModelFactory(priceAlteration: PriceAlteration): com.bytetrain.prodinv.domain.PriceAlterationEntity {
+        return com.bytetrain.prodinv.domain.PriceAlterationEntity(priceAlteration.priceType, priceModelMapper.toEntity(priceAlteration.price))
     }
 
     @ObjectFactory
-    fun priceAlterationModelToPriceAlterationFactory(priceAlteration: com.bytetrain.prodinv.domain.PriceAlteration):
+    fun priceAlterationModelToPriceAlterationFactory(priceAlterationEntity: com.bytetrain.prodinv.domain.PriceAlterationEntity):
         PriceAlteration {
-        return PriceAlteration(priceAlteration.priceType, priceModelMapper.toDto(priceAlteration.price))
+        return PriceAlteration(priceAlterationEntity.priceType, priceModelMapper.toDto(priceAlterationEntity.priceEntity))
     }
 }
