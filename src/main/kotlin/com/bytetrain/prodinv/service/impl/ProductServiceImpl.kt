@@ -1,6 +1,6 @@
 package com.bytetrain.prodinv.service.impl
 
-import com.bytetrain.prodinv.domain.Product
+import com.bytetrain.prodinv.domain.ProductEntity
 import com.bytetrain.prodinv.repository.ProductRepository
 import com.bytetrain.prodinv.service.ProductService
 import com.bytetrain.prodinv.service.dto.ProductDTO
@@ -18,7 +18,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 
 /**
- * Service Implementation for managing [Product].
+ * Service Implementation for managing [ProductEntity].
  */
 @Service
 class ProductServiceImpl(
@@ -30,20 +30,6 @@ class ProductServiceImpl(
 ) : ProductService, ProductApiDelegate {
 
     private val log = LoggerFactory.getLogger(javaClass)
-
-    /**
-     * Save a product.
-     *
-     * @param productDTO the entity to save.
-     * @return the persisted entity.
-     */
-    override fun save(productDTO: ProductDTO): ProductDTO {
-        log.debug("Request to save Product : {}", productDTO)
-
-        var product = productMapper.toEntity(productDTO)
-        product = productRepository.save(product)
-        return productMapper.toDto(product)
-    }
 
     override fun createProduct(productCreateDto: ProductCreate): ResponseEntity<com.bytetrain.prodinv.web.api.model.Product> {
         log.debug("Request to save Product : {}", productCreateDto)

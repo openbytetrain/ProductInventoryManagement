@@ -3,7 +3,7 @@ package com.bytetrain.prodinv.service.dto
 import java.io.Serializable
 
 /**
- * A DTO for the [com.bytetrain.prodinv.domain.Product] entity.
+ * A DTO for the [com.bytetrain.prodinv.domain.ProductEntity] entity.
  */
 data class ProductDTO(
 

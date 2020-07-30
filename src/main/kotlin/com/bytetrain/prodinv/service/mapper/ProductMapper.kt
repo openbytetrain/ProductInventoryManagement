@@ -1,21 +1,21 @@
 package com.bytetrain.prodinv.service.mapper
 
-import com.bytetrain.prodinv.domain.Product
+import com.bytetrain.prodinv.domain.ProductEntity
 import com.bytetrain.prodinv.service.dto.ProductDTO
 import org.mapstruct.Mapper
 
 /**
- * Mapper for the entity [Product] and its DTO [ProductDTO].
+ * Mapper for the entity [ProductEntity] and its DTO [ProductDTO].
  */
 @Mapper(componentModel = "spring", uses = [])
 interface ProductMapper :
-    EntityMapper<ProductDTO, Product> {
+    EntityMapper<ProductDTO, ProductEntity> {
 
-    override fun toEntity(productDTO: ProductDTO): Product
+    override fun toEntity(productDTO: ProductDTO): ProductEntity
 
     @JvmDefault
     fun fromId(id: String?) = id?.let {
-        val product = Product()
+        val product = ProductEntity()
         product.id = id
         product
     }

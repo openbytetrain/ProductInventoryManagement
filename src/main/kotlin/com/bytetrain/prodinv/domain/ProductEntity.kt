@@ -6,12 +6,8 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 
-/**
- * A Product.
- *
- */
 @Document(collection = "product")
-data class Product(
+data class ProductEntity(
     @Id
     var id: String? = null,
     @Field("name")
@@ -23,7 +19,7 @@ data class Product(
     @Field("product_offering")
     var productOffering: ProductOfferingRef? = null,
     @Field("product_characteristic")
-    var productCharacteristic: List<Characteristic>? = null,
+    var productCharacteristic: List<CharacteristicEntity>? = null,
     @Field("product_specification")
     var productSpecification: ProductSpecificationRef? = null,
     @Field("billing_account")
@@ -35,15 +31,13 @@ data class Product(
     @Field("realizing_service")
     var realizingService: List<ServiceRef>? = null,
     @Field("product_price")
-    var productPrice: List<ProductPrice>? = null
+    var productPriceEntity: List<ProductPriceEntity>? = null
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
 ) : Serializable {
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is Product) return false
+        if (other !is ProductEntity) return false
 
         return id != null && other.id != null && id == other.id
     }
