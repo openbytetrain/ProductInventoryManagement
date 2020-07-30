@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class CharacteristicModelMapperEntityTest {
+class CharacteristicModelMapperTest {
 
     @Autowired
     private lateinit var characteristicModelMapper: CharacteristicModelMapper

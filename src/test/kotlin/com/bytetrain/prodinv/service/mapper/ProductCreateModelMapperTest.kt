@@ -2,28 +2,64 @@ package com.bytetrain.prodinv.service.mapper
 
 import com.bytetrain.prodinv.web.api.model.*
 import org.assertj.core.api.Assertions
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
 
+@SpringBootTest
 class ProductCreateModelMapperTest {
 
+    @Autowired
     private lateinit var productCreateModelMapper: ProductCreateModelMapper
 
-    private var productCharacteristics = mutableListOf(Characteristic("name", Any(), null,
-        null, null, null))
-    private var relatedParty = mutableListOf(RelatedParty("1", "1", null, null, null,
-        null, null, null))
-    private var realizingService = mutableListOf(ServiceRef("1", null, null, null,
-        null, null, null))
-    private var productPrice = mutableListOf(ProductPrice("1", Price(null, null,
-        null, null, null, null, null), null,
-        null, null, null, null, null,
-        null, null, null, null))
-
-    @BeforeEach
-    fun setUp() {
-        productCreateModelMapper = ProductCreateModelMapperImpl()
-    }
+    private var productCharacteristics = mutableListOf(
+        Characteristic(
+            "name",
+            Any(),
+            null,
+            null,
+            null,
+            null))
+    private var relatedParty = mutableListOf(
+        RelatedParty(
+            "1",
+            "1",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null))
+    private var realizingService = mutableListOf(
+        ServiceRef(
+            "1",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null))
+    private var productPrice = mutableListOf(
+        ProductPrice(
+            "1",
+            Price(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null),
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null))
 
     @Test
     fun testEntityFromId() {
@@ -42,7 +78,7 @@ class ProductCreateModelMapperTest {
         Assertions.assertThat(product.description == "String")
         Assertions.assertThat(product.productCharacteristic == productCharacteristics)
         Assertions.assertThat(product.productOffering?.id == "1")
-        Assertions.assertThat(product.productPrice == productPrice)
+        Assertions.assertThat(product.productPriceEntity == productPrice)
         Assertions.assertThat(product.productSpecification?.id == "1")
         Assertions.assertThat(product.realizingService == realizingService)
         Assertions.assertThat(product.relatedParty == relatedParty)
@@ -61,18 +97,38 @@ class ProductCreateModelMapperTest {
             null,
             null,
             null,
-            BillingAccountRef("id_string", null, null, null, null, null,
+            BillingAccountRef(
+                "id_string",
+                null,
+                null,
+                null,
+                null,
+                null,
                 null),
             null,
             null,
             productCharacteristics,
-            ProductOfferingRef("1", null, null, null, null, null,
+            ProductOfferingRef(
+                "1",
+                null,
+                null,
+                null,
+                null,
+                null,
                 null),
             null,
             productPrice,
             null,
-            ProductSpecificationRef("1", null, null, null, null, null,
-                null, null, null),
+            ProductSpecificationRef(
+                "1",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null),
             null,
             null,
             realizingService,

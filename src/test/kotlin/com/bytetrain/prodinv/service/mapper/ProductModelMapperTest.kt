@@ -1,6 +1,9 @@
 package com.bytetrain.prodinv.service.mapper
 
-import com.bytetrain.prodinv.domain.Product
+import com.bytetrain.prodinv.domain.CharacteristicEntity
+import com.bytetrain.prodinv.domain.PriceEntity
+import com.bytetrain.prodinv.domain.ProductEntity
+import com.bytetrain.prodinv.domain.ProductPriceEntity
 import com.bytetrain.prodinv.web.api.model.*
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach
@@ -10,16 +13,54 @@ class ProductModelMapperTest {
 
     private lateinit var productModelMapper: ProductModelMapper
 
-    private var productCharacteristics = mutableListOf(Characteristic("name", Any(), null,
-        null, null, null))
-    private var relatedParty = mutableListOf(RelatedParty("1", "1", null, null, null,
-        null, null, null))
-    private var realizingService = mutableListOf(ServiceRef("1", null, null, null,
-        null, null, null))
-    private var productPrice = mutableListOf(ProductPrice("1", Price(null, null,
-        null, null, null, null, null), null,
-        null, null, null, null, null,
-        null, null, null, null))
+    private var productCharacteristics = mutableListOf(
+        CharacteristicEntity(
+            "name",
+            Any(),
+            null,
+            null,
+            null,
+            null))
+    private var relatedParty = mutableListOf(
+        RelatedParty(
+            "1",
+            "1",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null))
+    private var realizingService = mutableListOf(
+        ServiceRef(
+            "1",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null))
+    private var productPrice = mutableListOf(
+        ProductPriceEntity(
+            "1",
+            PriceEntity(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null),
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null))
 
     @BeforeEach
     fun setUp() {
@@ -43,18 +84,38 @@ class ProductModelMapperTest {
         Assertions.assertThat(product.relatedParty == relatedParty)
     }
 
-    private fun generateProduct(): Product {
+    private fun generateProduct(): ProductEntity {
 
-        return Product("1",
+        return ProductEntity("1",
             "Product",
             ProductStatusType.cancelled,
             "String",
-            ProductOfferingRef("1", null, null, null, null, null,
+            ProductOfferingRef(
+                "1",
+                null,
+                null,
+                null,
+                null,
+                null,
                 null),
             productCharacteristics,
-            ProductSpecificationRef("1", null, null, null, null, null,
-                null, null, null),
-            BillingAccountRef("id_string", null, null, null, null, null,
+            ProductSpecificationRef(
+                "1",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null),
+            BillingAccountRef(
+                "id_string",
+                null,
+                null,
+                null,
+                null,
+                null,
                 null),
             null,
             relatedParty,
