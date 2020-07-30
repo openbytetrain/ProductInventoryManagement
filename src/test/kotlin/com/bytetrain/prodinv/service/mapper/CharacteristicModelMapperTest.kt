@@ -1,30 +1,30 @@
 package com.bytetrain.prodinv.service.mapper
 
-import com.bytetrain.prodinv.domain.Characteristic
+import com.bytetrain.prodinv.domain.CharacteristicEntity
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class CharacteristicModelMapperTest {
+class CharacteristicModelMapperEntityTest {
 
     @Autowired
     private lateinit var characteristicModelMapper: CharacteristicModelMapper
 
     @Test
     fun `test Characteristic Model mapping with CharacteristicModelMapper`() {
-        val characteristic = characteristicModelMapper.toDto(generateCharacteristic())
-        Assertions.assertThat(characteristic.name == "characteristic")
-        Assertions.assertThat(characteristic.value == "Any")
-        Assertions.assertThat(characteristic.valueType == "null")
-        Assertions.assertThat(characteristic.atBaseType == "null")
-        Assertions.assertThat(characteristic.atType == "String")
+        val characteristicEntity = characteristicModelMapper.toDto(generateCharacteristic())
+        Assertions.assertThat(characteristicEntity.name == "characteristic")
+        Assertions.assertThat(characteristicEntity.value == "Any")
+        Assertions.assertThat(characteristicEntity.valueType == "null")
+        Assertions.assertThat(characteristicEntity.atBaseType == "null")
+        Assertions.assertThat(characteristicEntity.atType == "String")
     }
 
-    private fun generateCharacteristic(): Characteristic {
+    private fun generateCharacteristic(): CharacteristicEntity {
 
-        return Characteristic("characteristic",
+        return CharacteristicEntity("characteristic",
             "Any",
             "null",
             "null",

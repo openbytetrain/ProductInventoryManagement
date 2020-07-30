@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component
 class CharacteristicFactory {
 
     @ObjectFactory
-    fun characteristicToModelFactory(characteristic: Characteristic): com.bytetrain.prodinv.domain.Characteristic {
-        return com.bytetrain.prodinv.domain.Characteristic(characteristic.name, characteristic.value)
+    fun characteristicToModelFactory(characteristic: Characteristic): com.bytetrain.prodinv.domain.CharacteristicEntity {
+        return com.bytetrain.prodinv.domain.CharacteristicEntity(characteristic.name, characteristic.value)
     }
     @ObjectFactory
-    fun modelToCharacteristicFactory(characteristic: com.bytetrain.prodinv.domain.Characteristic): Characteristic {
-        return Characteristic(characteristic.name, characteristic.value)
+    fun modelToCharacteristicFactory(characteristicEntity: com.bytetrain.prodinv.domain.CharacteristicEntity): Characteristic {
+        return Characteristic(characteristicEntity.name, characteristicEntity.value)
     }
 }
