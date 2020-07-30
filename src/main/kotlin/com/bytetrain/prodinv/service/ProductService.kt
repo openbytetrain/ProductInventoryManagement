@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 
 /**
- * Service Interface for managing [com.bytetrain.prodinv.domain.Product].
+ * Service Interface for managing [com.bytetrain.prodinv.domain.ProductEntity].
  */
 interface ProductService {
 
@@ -15,14 +15,7 @@ interface ProductService {
      * @param productDTO the entity to save.
      * @return the persisted entity.
      */
-    fun save(productDTO: ProductDTO): ProductDTO
 
-    /**
-     * Get all the products.
-     *
-     * @param pageable the pagination information.
-     * @return the list of entities.
-     */
     fun findAll(pageable: Pageable): Page<ProductDTO>
 
     /**

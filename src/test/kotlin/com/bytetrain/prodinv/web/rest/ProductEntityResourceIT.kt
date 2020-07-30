@@ -1,7 +1,7 @@
 package com.bytetrain.prodinv.web.rest
 
 import com.bytetrain.prodinv.ProductinventoryApp
-import com.bytetrain.prodinv.domain.Product
+import com.bytetrain.prodinv.domain.ProductEntity
 import com.bytetrain.prodinv.repository.ProductRepository
 import com.bytetrain.prodinv.service.ProductService
 import com.bytetrain.prodinv.service.mapper.ProductMapper
@@ -38,7 +38,7 @@ import org.springframework.validation.Validator
 @SpringBootTest(classes = [ProductinventoryApp::class])
 @AutoConfigureMockMvc
 @WithMockUser
-class ProductResourceIT {
+class ProductEntityResourceIT {
 
     @Autowired
     private lateinit var productRepository: ProductRepository
@@ -63,7 +63,7 @@ class ProductResourceIT {
 
     private lateinit var restProductMockMvc: MockMvc
 
-    private lateinit var product: Product
+    private lateinit var productEntity: ProductEntity
 
     @BeforeEach
     fun setup() {
@@ -80,7 +80,7 @@ class ProductResourceIT {
     @BeforeEach
     fun initTest() {
         productRepository.deleteAll()
-        product = createEntity()
+        productEntity = createEntity()
     }
 
     @Test
@@ -89,7 +89,7 @@ class ProductResourceIT {
         val databaseSizeBeforeCreate = productRepository.findAll().size
 
         // Create the Product
-        val productDTO = productMapper.toDto(product)
+        val productDTO = productMapper.toDto(productEntity)
         restProductMockMvc.perform(
             post("/api/products")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -109,8 +109,8 @@ class ProductResourceIT {
         val databaseSizeBeforeCreate = productRepository.findAll().size
 
         // Create the Product with an existing ID
-        product.id = "existing_id"
-        val productDTO = productMapper.toDto(product)
+        productEntity.id = "existing_id"
+        val productDTO = productMapper.toDto(productEntity)
 
         // An entity with an existing ID cannot be created, so this API call must fail
         restProductMockMvc.perform(
@@ -128,13 +128,13 @@ class ProductResourceIT {
     @Throws(Exception::class)
     fun getAllProducts() {
         // Initialize the database
-        productRepository.save(product)
+        productRepository.save(productEntity)
 
         // Get all the productList
         restProductMockMvc.perform(get("/api/products?sort=id,desc"))
             .andExpect(status().isOk)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(product.id)))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(productEntity.id)))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION))) }
 
@@ -142,16 +142,16 @@ class ProductResourceIT {
     @Throws(Exception::class)
     fun getProduct() {
         // Initialize the database
-        productRepository.save(product)
+        productRepository.save(productEntity)
 
-        val id = product.id
+        val id = productEntity.id
         assertNotNull(id)
 
         // Get the product
         restProductMockMvc.perform(get("/api/products/{id}", id))
             .andExpect(status().isOk)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.id").value(product.id))
+            .andExpect(jsonPath("$.id").value(productEntity.id))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION)) }
 
@@ -165,12 +165,12 @@ class ProductResourceIT {
     @Test
     fun updateProduct() {
         // Initialize the database
-        productRepository.save(product)
+        productRepository.save(productEntity)
 
         val databaseSizeBeforeUpdate = productRepository.findAll().size
 
         // Update the product
-        val id = product.id
+        val id = productEntity.id
         assertNotNull(id)
         val updatedProduct = productRepository.findById(id).get()
         updatedProduct.name = UPDATED_NAME
@@ -196,7 +196,7 @@ class ProductResourceIT {
         val databaseSizeBeforeUpdate = productRepository.findAll().size
 
         // Create the Product
-        val productDTO = productMapper.toDto(product)
+        val productDTO = productMapper.toDto(productEntity)
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restProductMockMvc.perform(
@@ -214,13 +214,13 @@ class ProductResourceIT {
     @Throws(Exception::class)
     fun deleteProduct() {
         // Initialize the database
-        productRepository.save(product)
+        productRepository.save(productEntity)
 
         val databaseSizeBeforeDelete = productRepository.findAll().size
 
         // Delete the product
         restProductMockMvc.perform(
-            delete("/api/products/{id}", product.id)
+            delete("/api/products/{id}", productEntity.id)
                 .accept(MediaType.APPLICATION_JSON)
         ).andExpect(status().isNoContent)
 
@@ -244,8 +244,8 @@ class ProductResourceIT {
          * if they test an entity which requires the current entity.
          */
         @JvmStatic
-        fun createEntity(): Product {
-            val product = Product(
+        fun createEntity(): ProductEntity {
+            val product = ProductEntity(
                 name = DEFAULT_NAME,
                 description = DEFAULT_DESCRIPTION
             )
@@ -260,8 +260,8 @@ class ProductResourceIT {
          * if they test an entity which requires the current entity.
          */
         @JvmStatic
-        fun createUpdatedEntity(): Product {
-            val product = Product(
+        fun createUpdatedEntity(): ProductEntity {
+            val product = ProductEntity(
                 name = UPDATED_NAME,
                 description = UPDATED_DESCRIPTION
             )
