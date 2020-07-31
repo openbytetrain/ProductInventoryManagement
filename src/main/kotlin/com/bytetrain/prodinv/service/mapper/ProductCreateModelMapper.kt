@@ -9,14 +9,6 @@ import org.mapstruct.Mapper
 abstract class ProductCreateModelMapper :
     EntityMapper<ProductCreate, ProductEntity> {
 
-    /*override fun toDto(entity: ProductEntity): ProductCreate {
-        TODO("Not yet implemented")
-    }
-
-    override fun toDto(entityList: MutableList<ProductEntity>): MutableList<ProductCreate> {
-        TODO("Not yet implemented")
-    }*/
-
     fun fromId(id: String?) = id?.let {
         val product = ProductEntity()
         product.id = id
