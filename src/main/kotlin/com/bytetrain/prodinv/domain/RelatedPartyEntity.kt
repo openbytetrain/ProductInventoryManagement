@@ -1,8 +1,6 @@
 package com.bytetrain.prodinv.domain
 
-
 import org.springframework.data.mongodb.core.mapping.Document
-
 
 @Document(collection = "related_party")
 data class RelatedPartyEntity(
@@ -15,5 +13,4 @@ data class RelatedPartyEntity(
     var atBaseType: String? = null,
     var atSchemaLocation: java.net.URI? = null,
     var atType: String? = null
-) {
-}
+)

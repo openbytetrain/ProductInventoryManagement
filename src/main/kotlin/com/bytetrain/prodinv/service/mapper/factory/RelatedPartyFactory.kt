@@ -13,7 +13,7 @@ class RelatedPartyFactory {
     }
 
     @ObjectFactory
-    fun modelToRelatedParty(relatedPartyEntity: RelatedPartyEntity): RelatedParty{
+    fun modelToRelatedParty(relatedPartyEntity: RelatedPartyEntity): RelatedParty {
         return RelatedParty(relatedPartyEntity.id, relatedPartyEntity.atReferredType)
     }
 }

@@ -7,8 +7,13 @@ class RelatedPartyMapperTest {
 
     private lateinit var relatedPartyMapper: RelatedPartyMapper
 
-    /*@BeforeEach
+    @BeforeEach
     fun setUp() {
-        relatedPartyMapper = RelatedPartyImp
-    }*/
+        relatedPartyMapper = RelatedPartyMapperImpl()
+    }
+
+    @Test
+    fun `test RelatedParty toEntity mapping with RelatedPartyModelMapper`() {
+        //TODO
+    }
 }
