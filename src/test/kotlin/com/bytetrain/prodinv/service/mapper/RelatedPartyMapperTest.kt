@@ -13,11 +13,6 @@ class RelatedPartyMapperTest {
     @Autowired
     private lateinit var relatedPartyModelMapper: RelatedPartyModelMapper
 
-  /* @BeforeEach
-    fun setUp() {
-        relatedPartyModelMapper = RelatedPartyModelMapperImpl()
-    }*/
-
     @Test
     fun `test RelatedParty toDto mapping with RelatedPartyModelMapper`() {
         val relatedPartyEntity = relatedPartyModelMapper.toDto(generateRelatedPartyEntity())
