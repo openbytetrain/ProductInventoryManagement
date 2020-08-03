@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class CharacteristicModelMapperEntityTest {
+class CharacteristicModelMapperTest {
 
     @Autowired
     private lateinit var characteristicModelMapper: CharacteristicModelMapper
@@ -24,11 +24,11 @@ class CharacteristicModelMapperEntityTest {
 
     private fun generateCharacteristic(): CharacteristicEntity {
 
-        return CharacteristicEntity("characteristic",
-            "Any",
-            "null",
-            "null",
-            null,
-            "String")
+        return CharacteristicEntity(
+            name = "characteristic",
+            value = "Any",
+            valueType = "null",
+            atBaseType = "null",
+            atType = "String")
     }
 }
