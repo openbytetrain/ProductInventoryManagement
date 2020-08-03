@@ -27,7 +27,7 @@ data class ProductEntity(
     @Field("schema_location")
     var atSchemaLocation: java.net.URI? = null,
     @Field("related_party")
-    var relatedParty: List<RelatedParty>? = null,
+    var relatedParty: List<RelatedPartyEntity>? = null,
     @Field("realizing_service")
     var realizingService: List<ServiceRef>? = null,
     @Field("product_price")

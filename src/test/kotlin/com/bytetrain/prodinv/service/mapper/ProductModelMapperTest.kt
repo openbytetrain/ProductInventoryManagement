@@ -56,7 +56,6 @@ class ProductModelMapperTest {
             productCharacteristic = productCharacteristics,
             productSpecification = ProductSpecificationRef(id = "1"),
             billingAccount = BillingAccountRef(id = "id_string"),
-            relatedParty = relatedParty,
             realizingService = realizingService,
             productPriceEntity = productPrice)
     }

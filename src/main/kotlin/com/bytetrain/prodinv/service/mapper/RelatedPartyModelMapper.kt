@@ -6,5 +6,5 @@ import com.bytetrain.prodinv.web.api.model.RelatedParty
 import org.mapstruct.Mapper
 
 @Mapper(componentModel = "spring", uses = [RelatedPartyFactory::class])
-interface RelatedPartyMapper :
+interface RelatedPartyModelMapper :
     EntityMapper<RelatedParty, RelatedPartyEntity>
