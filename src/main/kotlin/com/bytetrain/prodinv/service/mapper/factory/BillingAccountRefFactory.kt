@@ -10,11 +10,25 @@ class BillingAccountRefFactory {
 
     @ObjectFactory
     fun billingAccountRefToModelFactory(billingAccountRef: BillingAccountRef): BillingAccountRefEntity {
-        return BillingAccountRefEntity(billingAccountRef.id)
+        return BillingAccountRefEntity(
+            id = billingAccountRef.id,
+            href = billingAccountRef.href,
+            name = billingAccountRef.name,
+            atType = billingAccountRef.atType,
+            atBaseType = billingAccountRef.atBaseType,
+            atSchemaLocation = billingAccountRef.atSchemaLocation,
+            atReferredType = billingAccountRef.atReferredType)
     }
 
     @ObjectFactory
     fun modelToBillingAccountRefFactory(billingAccountRefEntity: BillingAccountRefEntity): BillingAccountRef {
-        return BillingAccountRef(billingAccountRefEntity.id)
+        return BillingAccountRef(
+            id = billingAccountRefEntity.id,
+            href = billingAccountRefEntity.href,
+            name = billingAccountRefEntity.name,
+            atType = billingAccountRefEntity.atType,
+            atBaseType = billingAccountRefEntity.atBaseType,
+            atSchemaLocation = billingAccountRefEntity.atSchemaLocation,
+            atReferredType = billingAccountRefEntity.atReferredType)
     }
 }

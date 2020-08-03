@@ -29,6 +29,7 @@ class ProductModelMapperTest {
     @Test
     fun `test Product Dto creation with ProductModelMapper`() {
 
+        val p = generateProduct()
         val product = productModelMapper.toDto(generateProduct())
         Assertions.assertThat(product.name == "String")
         Assertions.assertThat(product.status == ProductStatusType.active)

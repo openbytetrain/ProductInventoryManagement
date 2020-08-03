@@ -16,17 +16,17 @@ class ProductOfferingRefMapperTest {
     @Test
     fun `test ProductOfferingRef toDto mapping with ProductOfferingRefMapper`() {
         val productOfferingRefEntity = productOfferingRefMapper.toDto(generateProductOfferingRefEntity())
-        Assertions.assertThat(productOfferingRefEntity.id == "1")
-        Assertions.assertThat(productOfferingRefEntity.href == "string")
-        Assertions.assertThat(productOfferingRefEntity.name == "string")
+        Assertions.assertThat(productOfferingRefEntity.id).isEqualTo("5")
+        Assertions.assertThat(productOfferingRefEntity.href).isEqualTo("string")
+        Assertions.assertThat(productOfferingRefEntity.name).isEqualTo("string")
     }
 
     @Test
     fun `test ProductOfferingRef toEntity mapping with ProductOfferingRefMapper`() {
         val productOfferingRefDto = productOfferingRefMapper.toEntity(generateProductOfferingRefDto())
-        Assertions.assertThat(productOfferingRefDto.id == "1")
-        Assertions.assertThat(productOfferingRefDto.href == "string")
-        Assertions.assertThat(productOfferingRefDto.name == "string")
+        Assertions.assertThat(productOfferingRefDto.id).isEqualTo("4")
+        Assertions.assertThat(productOfferingRefDto.href).isEqualTo("string")
+        Assertions.assertThat(productOfferingRefDto.name).isEqualTo("string")
     }
 
     private fun generateProductOfferingRefEntity(): ProductOfferingRefEntity {

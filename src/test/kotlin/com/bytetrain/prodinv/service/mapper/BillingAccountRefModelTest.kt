@@ -16,13 +16,13 @@ class BillingAccountRefModelTest {
     @Test
     fun `test BillingAccount toDto mapping with RelatedPartyModelMapper`() {
         val billingAccountEntity = billingAccountRefModelMapper.toDto(generateBillingAccountEntity())
-        Assertions.assertThat(billingAccountEntity.id == "1")
+        Assertions.assertThat(billingAccountEntity.id).isEqualTo("2")
     }
 
     @Test
     fun `test BillingAccount toEntity mapping with RelatedPartyModelMapper`() {
         val billingAccountDto = billingAccountRefModelMapper.toEntity(generateBillingAccountDto())
-        Assertions.assertThat(billingAccountDto.id == "1")
+        Assertions.assertThat(billingAccountDto.id).isEqualTo("3")
     }
 
     fun generateBillingAccountEntity(): BillingAccountRefEntity {

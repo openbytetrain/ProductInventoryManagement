@@ -16,15 +16,15 @@ class RelatedPartyMapperTest {
     @Test
     fun `test RelatedParty toDto mapping with RelatedPartyModelMapper`() {
         val relatedPartyEntity = relatedPartyModelMapper.toDto(generateRelatedPartyEntity())
-        Assertions.assertThat(relatedPartyEntity.id == "1")
-        Assertions.assertThat(relatedPartyEntity.atReferredType == "String")
+        Assertions.assertThat(relatedPartyEntity.id).isEqualTo("1")
+        Assertions.assertThat(relatedPartyEntity.atReferredType).isEqualTo("String")
     }
 
     @Test
     fun `test RelatedParty toEntity mapping with RelatedPartyModelMapper`() {
         val relatedPartyDto = relatedPartyModelMapper.toEntity(generateRelatedPartyDto())
-        Assertions.assertThat(relatedPartyDto.id == "1")
-        Assertions.assertThat(relatedPartyDto.atReferredType == "String")
+        Assertions.assertThat(relatedPartyDto.id).isEqualTo("1")
+        Assertions.assertThat(relatedPartyDto.atReferredType).isEqualTo("String")
     }
 
     fun generateRelatedPartyEntity(): RelatedPartyEntity {
