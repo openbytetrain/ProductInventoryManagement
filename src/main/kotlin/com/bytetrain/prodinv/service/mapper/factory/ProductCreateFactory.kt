@@ -16,7 +16,6 @@ class ProductCreateFactory(var createModelMapper: ProductCreateModelMapper) {
             status = ProductStatusType.pendingActive,
             description = productEntity.description,
             name = productEntity.name,
-            productOffering = productEntity.productOffering,
             productSpecification = productEntity.productSpecification,
             realizingService = productEntity.realizingService,
             atSchemaLocation = productEntity.atSchemaLocation

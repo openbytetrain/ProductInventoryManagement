@@ -17,7 +17,7 @@ data class ProductEntity(
     @Field("description")
     var description: String? = null,
     @Field("product_offering")
-    var productOffering: ProductOfferingRef? = null,
+    var productOffering: ProductOfferingRefEntity? = null,
     @Field("product_characteristic")
     var productCharacteristic: List<CharacteristicEntity>? = null,
     @Field("product_specification")

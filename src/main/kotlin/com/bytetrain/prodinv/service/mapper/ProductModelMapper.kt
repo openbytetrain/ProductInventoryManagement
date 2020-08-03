@@ -8,6 +8,7 @@ import org.mapstruct.Mapper
     CharacteristicModelMapper::class,
     ProductPriceModelMapper::class,
     RelatedPartyModelMapper::class,
-    BillingAccountRefModelMapper::class])
+    BillingAccountRefModelMapper::class,
+    ProductOfferingRefMapper::class])
 interface ProductModelMapper :
     EntityMapper<Product, ProductEntity>
