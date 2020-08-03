@@ -9,7 +9,8 @@ import org.mapstruct.Mapper
     CharacteristicModelMapper::class,
     ProductPriceModelMapper::class,
     ProductCreateFactory::class,
-    RelatedPartyModelMapper::class])
+    RelatedPartyModelMapper::class,
+    BillingAccountRefModelMapper::class])
 abstract class ProductCreateModelMapper :
     EntityMapper<ProductCreate, ProductEntity> {
 

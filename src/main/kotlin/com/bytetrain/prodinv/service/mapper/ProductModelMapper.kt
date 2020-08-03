@@ -7,6 +7,7 @@ import org.mapstruct.Mapper
 @Mapper(componentModel = "spring", uses = [
     CharacteristicModelMapper::class,
     ProductPriceModelMapper::class,
-    RelatedPartyModelMapper::class])
+    RelatedPartyModelMapper::class,
+    BillingAccountRefModelMapper::class])
 interface ProductModelMapper :
     EntityMapper<Product, ProductEntity>

@@ -23,7 +23,7 @@ data class ProductEntity(
     @Field("product_specification")
     var productSpecification: ProductSpecificationRef? = null,
     @Field("billing_account")
-    var billingAccount: BillingAccountRef? = null,
+    var billingAccount: BillingAccountRefEntity? = null,
     @Field("schema_location")
     var atSchemaLocation: java.net.URI? = null,
     @Field("related_party")
