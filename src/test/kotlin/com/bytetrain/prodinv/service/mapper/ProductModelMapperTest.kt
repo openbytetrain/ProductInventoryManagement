@@ -14,53 +14,15 @@ class ProductModelMapperTest {
     private lateinit var productModelMapper: ProductModelMapper
 
     private var productCharacteristics = mutableListOf(
-        CharacteristicEntity(
-            "name",
-            Any(),
-            null,
-            null,
-            null,
-            null))
+        CharacteristicEntity(name = "name", value = Any()))
     private var relatedParty = mutableListOf(
-        RelatedParty(
-            "1",
-            "1",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null))
+        RelatedParty(id = "1", atReferredType = "1"))
     private var realizingService = mutableListOf(
-        ServiceRef(
-            "1",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null))
+        ServiceRef(id = "1"))
     private var productPrice = mutableListOf(
         ProductPriceEntity(
-            "1",
-            PriceEntity(
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null),
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null))
+            priceType = "1",
+            priceEntity = PriceEntity()))
 
     @BeforeEach
     fun setUp() {
@@ -86,40 +48,16 @@ class ProductModelMapperTest {
 
     private fun generateProduct(): ProductEntity {
 
-        return ProductEntity("1",
-            "Product",
-            ProductStatusType.cancelled,
-            "String",
-            ProductOfferingRef(
-                "1",
-                null,
-                null,
-                null,
-                null,
-                null,
-                null),
-            productCharacteristics,
-            ProductSpecificationRef(
-                "1",
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null),
-            BillingAccountRef(
-                "id_string",
-                null,
-                null,
-                null,
-                null,
-                null,
-                null),
-            null,
-            relatedParty,
-            realizingService,
-            productPrice)
+        return ProductEntity(id = "1",
+            name = "Product",
+            status = ProductStatusType.cancelled,
+            description = "String",
+            productOffering = ProductOfferingRef(id = "1"),
+            productCharacteristic = productCharacteristics,
+            productSpecification = ProductSpecificationRef(id = "1"),
+            billingAccount = BillingAccountRef(id = "id_string"),
+            relatedParty = relatedParty,
+            realizingService = realizingService,
+            productPriceEntity = productPrice)
     }
 }

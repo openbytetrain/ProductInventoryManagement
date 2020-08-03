@@ -1,10 +1,7 @@
 package com.bytetrain.prodinv.web.rest
 
 import com.bytetrain.prodinv.ProductinventoryApp
-import com.bytetrain.prodinv.domain.CharacteristicEntity
-import com.bytetrain.prodinv.domain.PriceEntity
 import com.bytetrain.prodinv.domain.ProductEntity
-import com.bytetrain.prodinv.domain.ProductPriceEntity
 import com.bytetrain.prodinv.repository.ProductRepository
 import com.bytetrain.prodinv.service.mapper.ProductMapper
 import com.bytetrain.prodinv.web.api.ProductApiController
@@ -66,6 +63,8 @@ class ProductEntityResourceIT {
 
     private lateinit var productEntity: ProductEntity
 
+    private lateinit var productCreate: ProductCreate
+
     @BeforeEach
     fun setup() {
         MockitoAnnotations.initMocks(this)
@@ -80,7 +79,7 @@ class ProductEntityResourceIT {
     @BeforeEach
     fun initTest() {
         productRepository.deleteAll()
-        productEntity = productCreateProductCreateEntity()
+        productCreate = productCreateProductCreateEntity()
     }
 
     @Test
@@ -225,131 +224,37 @@ class ProductEntityResourceIT {
         private const val DEFAULT_DESCRIPTION = "string"
         private const val UPDATED_DESCRIPTION = "BBBBBBBBBB"
 
-        private var productCharacteristics = mutableListOf(
-            CharacteristicEntity(
-                "name",
-                Any(),
-                null,
-                null,
-                null,
-                null))
-       private var relatedParty = mutableListOf(
-            RelatedParty(
-                "1",
-                "1",
-                null,
-                null,
-                null,
-                null,
-                null,
-                null))
-       private var realizingService = mutableListOf(
-            ServiceRef(
-                "1",
-                null,
-                null,
-                null,
-                null,
-                null,
-                null))
+        private var productCharacteristics = listOf(
+            Characteristic(name = "name", value = Any()))
+        private var relatedParty = mutableListOf(
+            RelatedParty(id = "1", atReferredType = "1"))
+        private var realizingService = mutableListOf(
+            ServiceRef(id = "1"))
         private var productPrice = mutableListOf(
-            ProductPriceEntity(
-                "1",
-                PriceEntity(
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null),
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null))
-        @JvmStatic
-        fun productCreateProductCreateEntity(): ProductEntity {
+            ProductPrice(
+                priceType = "1",
+                price = Price()))
 
-            return ProductEntity("1",
-                DEFAULT_NAME,
-                ProductStatusType.cancelled,
-                DEFAULT_DESCRIPTION,
-                ProductOfferingRef(
-                    "1",
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null),
-                productCharacteristics,
-                ProductSpecificationRef(
-                    "1",
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null),
-                BillingAccountRef(
-                    "id_string",
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null),
-                null,
-                relatedParty,
-                realizingService,
-                productPrice)
+        @JvmStatic
+        fun productCreateProductCreateEntity(): ProductCreate {
+
+            return ProductCreate(
+                status = ProductStatusType.active,
+                productCharacteristic = productCharacteristics,
+                realizingService = realizingService,
+                relatedParty = relatedParty,
+                productPrice = productPrice)
         }
 
         @JvmStatic
-        fun createUpdatedEntity(): ProductEntity {
-            return ProductEntity("1",
-                "Product",
-                ProductStatusType.cancelled,
-                "String",
-                ProductOfferingRef(
-                    "1",
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null),
-                productCharacteristics,
-                ProductSpecificationRef(
-                    "1",
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null),
-                BillingAccountRef(
-                    "id_string",
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null),
-                null,
-                relatedParty,
-                realizingService,
-                productPrice)
+        fun createUpdatedEntity(): ProductCreate {
+
+            return ProductCreate(
+                status = ProductStatusType.active,
+                productCharacteristic = productCharacteristics,
+                realizingService = realizingService,
+                relatedParty = relatedParty,
+                productPrice = productPrice)
         }
     }
 }

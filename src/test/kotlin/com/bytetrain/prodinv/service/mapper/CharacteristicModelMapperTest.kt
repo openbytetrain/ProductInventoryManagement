@@ -24,11 +24,11 @@ class CharacteristicModelMapperTest {
 
     private fun generateCharacteristic(): CharacteristicEntity {
 
-        return CharacteristicEntity("characteristic",
-            "Any",
-            "null",
-            "null",
-            null,
-            "String")
+        return CharacteristicEntity(
+            name = "characteristic",
+            value = "Any",
+            valueType = "null",
+            atBaseType = "null",
+            atType = "String")
     }
 }
