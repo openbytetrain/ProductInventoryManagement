@@ -49,7 +49,7 @@ class ProductModelMapperTest {
             name = "Product",
             status = ProductStatusType.cancelled,
             description = "String",
-            productOffering = ProductOfferingRef(id = "1"),
+            productOffering = ProductOfferingRefEntity(id = "1"),
             productCharacteristic = productCharacteristics,
             productSpecification = ProductSpecificationRef(id = "1"),
             billingAccount = BillingAccountRefEntity(id = "id_string"),
