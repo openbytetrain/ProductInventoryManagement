@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document(collection = "price_alteration")
 data class PriceAlterationEntity(
     var priceType: String,
-    var priceEntity: com.bytetrain.prodinv.domain.PriceEntity,
+    var priceEntity: PriceEntity,
     var applicationDuration: Int? = null,
     var description: String? = null,
     var name: String? = null,
