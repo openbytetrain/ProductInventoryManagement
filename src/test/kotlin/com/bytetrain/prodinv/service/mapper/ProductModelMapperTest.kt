@@ -1,9 +1,6 @@
 package com.bytetrain.prodinv.service.mapper
 
-import com.bytetrain.prodinv.domain.CharacteristicEntity
-import com.bytetrain.prodinv.domain.PriceEntity
-import com.bytetrain.prodinv.domain.ProductEntity
-import com.bytetrain.prodinv.domain.ProductPriceEntity
+import com.bytetrain.prodinv.domain.*
 import com.bytetrain.prodinv.web.api.model.*
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach
@@ -54,10 +51,9 @@ class ProductModelMapperTest {
             description = "String",
             productOffering = ProductOfferingRef(id = "1"),
             productCharacteristic = productCharacteristics,
-            productSpecification = ProductSpecificationRef(id = "1"),
+            productSpecification = ProductSpecificationRefEntity(id = "1"),
             billingAccount = BillingAccountRef(id = "id_string"),
             relatedParty = relatedParty,
-            realizingService = realizingService,
             productPriceEntity = productPrice)
     }
 }

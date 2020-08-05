@@ -21,4 +21,17 @@ class ProductCreateFactory() {
             atSchemaLocation = productEntity.atSchemaLocation
         )
     }
+
+    @ObjectFactory
+    fun productCreateToProductFactory(productCreate: ProductCreate): ProductEntity {
+        return ProductEntity(
+            status = ProductStatusType.pendingActive,
+            description = productCreate.description,
+            name = productCreate.name,
+            billingAccount = productCreate.billingAccount,
+            productOffering = productCreate.productOffering,
+            relatedParty = productCreate.relatedParty,
+            atSchemaLocation = productCreate.atSchemaLocation
+        )
+    }
 }

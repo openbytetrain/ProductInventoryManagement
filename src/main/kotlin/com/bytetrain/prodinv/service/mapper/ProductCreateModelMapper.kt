@@ -11,7 +11,7 @@ import org.mapstruct.Mapper
     ProductCreateFactory::class,
     ProductSpecificationRefModelMapper::class,
     ServiceRefModelMapper::class])
-abstract class ProductCreateModelMapper :
+interface ProductCreateModelMapper :
     EntityMapper<ProductCreate, ProductEntity> {
 
     fun fromId(id: String?) = id?.let {
