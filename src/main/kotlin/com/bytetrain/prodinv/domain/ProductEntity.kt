@@ -21,7 +21,7 @@ data class ProductEntity(
     @Field("product_characteristic")
     var productCharacteristic: List<CharacteristicEntity>? = null,
     @Field("product_specification")
-    var productSpecification: ProductSpecificationRef? = null,
+    var productSpecification: ProductSpecificationRefEntity? = null,
     @Field("billing_account")
     var billingAccount: BillingAccountRef? = null,
     @Field("schema_location")
@@ -29,7 +29,7 @@ data class ProductEntity(
     @Field("related_party")
     var relatedParty: List<RelatedParty>? = null,
     @Field("realizing_service")
-    var realizingService: List<ServiceRef>? = null,
+    var realizingService: List<ServiceRefEntity>? = null,
     @Field("product_price")
     var productPriceEntity: List<ProductPriceEntity>? = null
 

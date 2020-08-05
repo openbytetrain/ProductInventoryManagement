@@ -17,8 +17,6 @@ class ProductCreateFactory() {
             name = productEntity.name,
             billingAccount = productEntity.billingAccount,
             productOffering = productEntity.productOffering,
-            productSpecification = productEntity.productSpecification,
-            realizingService = productEntity.realizingService,
             relatedParty = productEntity.relatedParty,
             atSchemaLocation = productEntity.atSchemaLocation
         )
