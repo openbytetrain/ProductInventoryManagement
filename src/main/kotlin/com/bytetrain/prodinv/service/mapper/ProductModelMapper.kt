@@ -4,6 +4,11 @@ import com.bytetrain.prodinv.domain.ProductEntity
 import com.bytetrain.prodinv.web.api.model.Product
 import org.mapstruct.Mapper
 
-@Mapper(componentModel = "spring", uses = [CharacteristicModelMapper::class, ProductPriceModelMapper::class])
+@Mapper(componentModel = "spring", uses = [
+    CharacteristicModelMapper::class,
+    ProductPriceModelMapper::class,
+    ProductSpecificationRefModelMapper::class,
+    ServiceRefModelMapper::class
+])
 interface ProductModelMapper :
     EntityMapper<Product, ProductEntity>
