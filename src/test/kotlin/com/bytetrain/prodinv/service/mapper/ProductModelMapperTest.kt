@@ -1,9 +1,6 @@
 package com.bytetrain.prodinv.service.mapper
 
-import com.bytetrain.prodinv.domain.CharacteristicEntity
-import com.bytetrain.prodinv.domain.PriceEntity
-import com.bytetrain.prodinv.domain.ProductEntity
-import com.bytetrain.prodinv.domain.ProductPriceEntity
+import com.bytetrain.prodinv.domain.*
 import com.bytetrain.prodinv.web.api.model.*
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach
@@ -15,8 +12,8 @@ class ProductModelMapperTest {
 
     private var productCharacteristics = mutableListOf(
         CharacteristicEntity(name = "name", value = Any()))
-    private var relatedParty = mutableListOf(
-        RelatedParty(id = "1", atReferredType = "1"))
+    private var relatedPartyEntity = mutableListOf(
+        RelatedPartyEntity(id = "1", atReferredType = "1"))
     private var realizingService = mutableListOf(
         ServiceRef(id = "1"))
     private var productPrice = mutableListOf(
@@ -32,6 +29,7 @@ class ProductModelMapperTest {
     @Test
     fun `test Product Dto creation with ProductModelMapper`() {
 
+        val p = generateProduct()
         val product = productModelMapper.toDto(generateProduct())
         Assertions.assertThat(product.name == "String")
         Assertions.assertThat(product.status == ProductStatusType.active)
@@ -43,7 +41,7 @@ class ProductModelMapperTest {
         Assertions.assertThat(product.productPrice == productPrice)
         Assertions.assertThat(product.productSpecification?.id == "1")
         Assertions.assertThat(product.realizingService == realizingService)
-        Assertions.assertThat(product.relatedParty == relatedParty)
+        Assertions.assertThat(product.relatedParty == relatedPartyEntity)
     }
 
     private fun generateProduct(): ProductEntity {
@@ -52,12 +50,12 @@ class ProductModelMapperTest {
             name = "Product",
             status = ProductStatusType.cancelled,
             description = "String",
-            productOffering = ProductOfferingRef(id = "1"),
+            productOffering = ProductOfferingRefEntity(id = "1"),
             productCharacteristic = productCharacteristics,
             productSpecification = ProductSpecificationRef(id = "1"),
-            billingAccount = BillingAccountRef(id = "id_string"),
-            relatedParty = relatedParty,
+            billingAccount = BillingAccountRefEntity(id = "id_string"),
             realizingService = realizingService,
+            relatedParty = relatedPartyEntity,
             productPriceEntity = productPrice)
     }
 }

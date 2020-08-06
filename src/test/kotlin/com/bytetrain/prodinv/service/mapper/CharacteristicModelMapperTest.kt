@@ -15,11 +15,11 @@ class CharacteristicModelMapperTest {
     @Test
     fun `test Characteristic Model mapping with CharacteristicModelMapper`() {
         val characteristicEntity = characteristicModelMapper.toDto(generateCharacteristic())
-        Assertions.assertThat(characteristicEntity.name == "characteristic")
-        Assertions.assertThat(characteristicEntity.value == "Any")
-        Assertions.assertThat(characteristicEntity.valueType == "null")
-        Assertions.assertThat(characteristicEntity.atBaseType == "null")
-        Assertions.assertThat(characteristicEntity.atType == "String")
+        Assertions.assertThat(characteristicEntity.name).isEqualTo("characteristic")
+        Assertions.assertThat(characteristicEntity.value).isEqualTo("Any")
+        Assertions.assertThat(characteristicEntity.valueType).isEqualTo("null")
+        Assertions.assertThat(characteristicEntity.atBaseType).isEqualTo("null")
+        Assertions.assertThat(characteristicEntity.atType).isEqualTo("String")
     }
 
     private fun generateCharacteristic(): CharacteristicEntity {

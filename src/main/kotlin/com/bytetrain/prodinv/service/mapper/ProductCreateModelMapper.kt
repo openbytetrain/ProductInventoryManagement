@@ -5,7 +5,13 @@ import com.bytetrain.prodinv.service.mapper.factory.ProductCreateFactory
 import com.bytetrain.prodinv.web.api.model.ProductCreate
 import org.mapstruct.Mapper
 
-@Mapper(componentModel = "spring", uses = [CharacteristicModelMapper::class, ProductPriceModelMapper::class, ProductCreateFactory::class])
+@Mapper(componentModel = "spring", uses = [
+    CharacteristicModelMapper::class,
+    ProductPriceModelMapper::class,
+    ProductCreateFactory::class,
+    RelatedPartyModelMapper::class,
+    BillingAccountRefModelMapper::class,
+    ProductOfferingRefMapper::class])
 abstract class ProductCreateModelMapper :
     EntityMapper<ProductCreate, ProductEntity> {
 

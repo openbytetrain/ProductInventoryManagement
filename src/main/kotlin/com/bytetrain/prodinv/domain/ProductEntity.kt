@@ -17,17 +17,17 @@ data class ProductEntity(
     @Field("description")
     var description: String? = null,
     @Field("product_offering")
-    var productOffering: ProductOfferingRef? = null,
+    var productOffering: ProductOfferingRefEntity? = null,
     @Field("product_characteristic")
     var productCharacteristic: List<CharacteristicEntity>? = null,
     @Field("product_specification")
     var productSpecification: ProductSpecificationRef? = null,
     @Field("billing_account")
-    var billingAccount: BillingAccountRef? = null,
+    var billingAccount: BillingAccountRefEntity? = null,
     @Field("schema_location")
     var atSchemaLocation: java.net.URI? = null,
     @Field("related_party")
-    var relatedParty: List<RelatedParty>? = null,
+    var relatedParty: List<RelatedPartyEntity>? = null,
     @Field("realizing_service")
     var realizingService: List<ServiceRef>? = null,
     @Field("product_price")
