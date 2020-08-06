@@ -2,7 +2,7 @@ package com.bytetrain.prodinv.service.mapper
 
 import com.bytetrain.prodinv.domain.ServiceRefEntity
 import com.bytetrain.prodinv.web.api.model.ServiceRef
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -16,17 +16,17 @@ class ServiceRefModelMapperTest {
     @Test
     fun `test serviceRefRef creation with ProductModelMapper`() {
         var serviceSpecificationRef = serviceRefModelMapper.toDto(generateServiceRefEntity())
-        Assertions.assertThat(serviceSpecificationRef.id).isEqualTo("string1")
-        Assertions.assertThat(serviceSpecificationRef.href).isEqualTo("string2")
-        Assertions.assertThat(serviceSpecificationRef.name).isEqualTo("string3")
+        assertThat(serviceSpecificationRef.id).isEqualTo(generateServiceRefEntity().id)
+        assertThat(serviceSpecificationRef.href).isEqualTo("string2")
+        assertThat(serviceSpecificationRef.name).isEqualTo("string3")
     }
 
     @Test
     fun `test serviceRefRefEntity creation with serviceRefModelMapper`() {
         var serviceRefEntity = serviceRefModelMapper.toEntity(generateServiceRefDto())
-        Assertions.assertThat(serviceRefEntity.id).isEqualTo("string1")
-        Assertions.assertThat(serviceRefEntity.href).isEqualTo("string2")
-        Assertions.assertThat(serviceRefEntity.name).isEqualTo("string3")
+        assertThat(serviceRefEntity.id).isEqualTo(generateServiceRefDto().id)
+        assertThat(serviceRefEntity.href).isEqualTo("string2")
+        assertThat(serviceRefEntity.name).isEqualTo("string3")
     }
 
     private fun generateServiceRefEntity(): ServiceRefEntity {

@@ -2,7 +2,7 @@ package com.bytetrain.prodinv.service.mapper
 
 import com.bytetrain.prodinv.domain.ProductSpecificationRefEntity
 import com.bytetrain.prodinv.web.api.model.ProductSpecificationRef
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -16,17 +16,17 @@ class ProductSpecificationRefModelMapperTest {
     @Test
     fun `test productSpecificationRef creation with productSpecificationRefModelMapper`() {
         var productSpecificationRef = productSpecificationRefModelMapper.toDto(generateSpecificationRefEntity())
-        Assertions.assertThat(productSpecificationRef.id).isEqualTo("string1")
-        Assertions.assertThat(productSpecificationRef.href).isEqualTo("string2")
-        Assertions.assertThat(productSpecificationRef.name).isEqualTo("string3")
+        assertThat(productSpecificationRef.id).isEqualTo(generateSpecificationRefEntity().id)
+        assertThat(productSpecificationRef.href).isEqualTo("string2")
+        assertThat(productSpecificationRef.name).isEqualTo("string3")
     }
 
     @Test
     fun `test productSpecificationRefEntity creation with productSpecificationRefModelMapper`() {
         var productSpecificationRefEntity = productSpecificationRefModelMapper.toEntity(generateSpecificationRefDto())
-        Assertions.assertThat(productSpecificationRefEntity.id).isEqualTo("string1")
-        Assertions.assertThat(productSpecificationRefEntity.href).isEqualTo("string2")
-        Assertions.assertThat(productSpecificationRefEntity.name).isEqualTo("string3")
+        assertThat(productSpecificationRefEntity.id).isEqualTo(generateSpecificationRefDto().id)
+        assertThat(productSpecificationRefEntity.href).isEqualTo("string2")
+        assertThat(productSpecificationRefEntity.name).isEqualTo("string3")
     }
 
     private fun generateSpecificationRefEntity(): ProductSpecificationRefEntity {
