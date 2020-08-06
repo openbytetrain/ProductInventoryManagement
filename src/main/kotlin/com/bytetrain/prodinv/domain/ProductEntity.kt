@@ -30,8 +30,10 @@ data class ProductEntity(
     var relatedParty: List<RelatedParty>? = null,
     @Field("realizing_service")
     var realizingService: List<ServiceRef>? = null,
-    @Field("product_price")
-    var productPriceEntity: List<ProductPriceEntity>? = null
+    @Field("product_price?")
+    var productPriceEntity: List<ProductPriceEntity>? = null,
+    @Field("place")
+    val place: List<RelatedPlaceRefOrValueEntity>? = null
 
 ) : Serializable {
 
