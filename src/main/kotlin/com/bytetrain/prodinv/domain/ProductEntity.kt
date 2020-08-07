@@ -31,7 +31,9 @@ data class ProductEntity(
     @Field("realizing_service")
     var realizingService: List<ServiceRef>? = null,
     @Field("product_price")
-    var productPriceEntity: List<ProductPriceEntity>? = null
+    var productPriceEntity: List<ProductPriceEntity>? = null,
+    @Field("productOrderItem")
+    var productOrderItem: List<RelatedProductOrderItemEntity>? = null
 
 ) : Serializable {
 
