@@ -73,6 +73,15 @@ if (project.hasProperty("zipkin")) {
     apply from: "gradle/zipkin.gradle"
 }
 
+sourceSets {
+    test {
+        resources {
+            srcDirs = ["src/test/kotlin"]
+            excludes = ["**/*.kt"]
+        }
+    }
+}
+
 idea {
     module {
         excludeDirs += files("node_modules")
@@ -192,6 +201,7 @@ allprojects {
 
 dependencies {
     implementation project(':openapi')
+    implementation project(':domain')
 
     // import JHipster dependencies BOM
     if (!project.hasProperty("gae")) {

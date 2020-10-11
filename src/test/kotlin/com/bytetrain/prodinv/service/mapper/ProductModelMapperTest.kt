@@ -4,7 +4,7 @@ import com.bytetrain.prodinv.domain.CharacteristicEntity
 import com.bytetrain.prodinv.domain.PriceEntity
 import com.bytetrain.prodinv.domain.ProductEntity
 import com.bytetrain.prodinv.domain.ProductPriceEntity
-import com.bytetrain.prodinv.web.api.model.*
+import com.bytetrain.prodinv.web.apidelegate.mapper.ProductModelMapper
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

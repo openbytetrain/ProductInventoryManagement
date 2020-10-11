@@ -1,6 +1,6 @@
 package com.bytetrain.prodinv.service.mapper
 
-import com.bytetrain.prodinv.web.api.model.*
+import com.bytetrain.prodinv.web.apidelegate.mapper.ProductCreateModelMapper
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

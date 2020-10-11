@@ -1,5 +1,6 @@
 package com.bytetrain.prodinv.service.mapper
 
+import com.bytetrain.prodinv.web.apidelegate.mapper.ProductMapper
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

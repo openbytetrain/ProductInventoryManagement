@@ -2,14 +2,15 @@ package com.bytetrain.prodinv.web.rest
 
 import com.bytetrain.prodinv.ProductinventoryApp
 import com.bytetrain.prodinv.domain.ProductEntity
+import com.bytetrain.prodinv.domain.defaultTestEntity
 import com.bytetrain.prodinv.repository.ProductRepository
-import com.bytetrain.prodinv.service.mapper.ProductMapper
+import com.bytetrain.prodinv.web.apidelegate.mapper.ProductMapper
+import com.bytetrain.prodinv.utils.convertObjectToJsonBytes
+import com.bytetrain.prodinv.utils.createFormattingConversionService
 import com.bytetrain.prodinv.web.api.ProductApiController
-import com.bytetrain.prodinv.web.api.model.*
 import com.bytetrain.prodinv.web.rest.errors.ExceptionTranslator
-import java.io.File
 import kotlin.test.assertNotNull
-import org.apache.commons.io.FileUtils
+import org.apache.commons.io.IOUtils
 import org.assertj.core.api.Assertions.assertThat
 import org.hamcrest.Matchers.hasItem
 import org.junit.jupiter.api.BeforeEach
@@ -23,13 +24,8 @@ import org.springframework.http.MediaType
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
 import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.validation.Validator
 
@@ -61,7 +57,7 @@ class ProductEntityResourceIT {
 
     private lateinit var restProductMockMvc: MockMvc
 
-    private lateinit var productEntity: ProductEntity
+    private var productEntity: ProductEntity = ProductEntity.defaultTestEntity()
 
     private lateinit var productCreate: ProductCreate
 
@@ -86,13 +82,16 @@ class ProductEntityResourceIT {
     @Throws(Exception::class)
     fun createProduct() {
         val databaseSizeBeforeCreate = productRepository.findAll().size
-
-        val readFileToByteArray = FileUtils.readFileToByteArray(File("src/test/kotlin/com/bytetrain/prodinv/web/rest/product.txt"))
+        val resource = IOUtils.toString(
+            this.javaClass.getResourceAsStream("product-create.json"),
+            "UTF-8"
+        )
         restProductMockMvc.perform(
             post("/api/product")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(readFileToByteArray)
+                .content(resource)
         ).andExpect(status().isCreated)
+
         val productList = productRepository.findAll()
         assertThat(productList).hasSize(databaseSizeBeforeCreate + 1)
         val testProduct = productList[productList.size - 1]
@@ -141,7 +140,6 @@ class ProductEntityResourceIT {
         val id = productEntity.id
         assertNotNull(id)
 
-        // Get the product
         restProductMockMvc.perform(get("/api/product/{id}", id))
             .andExpect(status().isOk)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
@@ -159,6 +157,7 @@ class ProductEntityResourceIT {
 
     @Test
     fun updateProduct() {
+
         productRepository.save(productEntity)
 
         val databaseSizeBeforeUpdate = productRepository.findAll().size

@@ -10,6 +10,7 @@ openApiGenerate {
     outputDir = "$rootDir/openapi/".toString()
     apiPackage = "com.bytetrain.prodinv.web.api"
     modelPackage = "com.bytetrain.prodinv.web.api.model"
+    modelNameSuffix = "Model"
     templateDir = "$rootDir/src/main/resources/swagger/templates/kotlin-spring"
     apiFilesConstrainedTo = [""]
     modelFilesConstrainedTo = [""]

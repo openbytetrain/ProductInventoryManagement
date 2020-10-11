@@ -1,6 +1,6 @@
 package com.bytetrain.prodinv.domain
 
-import com.bytetrain.prodinv.web.rest.equalsVerifier
+import com.bytetrain.prodinv.utils.equalsVerifier
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
